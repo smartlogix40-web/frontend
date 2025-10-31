@@ -74,6 +74,9 @@ const LoginPage = () => {
         <div className="signup-link">
           <p>Don't have an account? <Link to="/signup">Sign up</Link></p>
         </div>
+        <div className="home-link">
+          <p>Back to <Link to="/">Home</Link></p>
+        </div>
       </div>
     </div>
   );

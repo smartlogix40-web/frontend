@@ -85,6 +85,9 @@ const SignupPage = () => {
         <div className="login-link">
           <p>Already have an account? <Link to="/login">Log In</Link></p>
         </div>
+        <div className="home-link">
+          <p>Back to <Link to="/">Home</Link></p>
+        </div>
       </div>
     </div>
   );

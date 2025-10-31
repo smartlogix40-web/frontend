@@ -15,7 +15,7 @@ const Home = () => {
           <Link to="/">Home</Link>
           <a href="#features">Features</a>
           <a href="#how-it-works">How It Works</a>
-          <a href="#contact">Contact</a>
+          <Link to="/contact">Contact Us</Link>
           <Link to="/login" className="login-button">Login</Link>
         </div>
       </nav>
@@ -25,7 +25,7 @@ const Home = () => {
         <div className="hero-content">
           <h1>Optimizing Freight Logistics with Smart AI Rules</h1>
           <p>Connect truckers and businesses instantly for efficient, cost-effective, and rule-based freight delivery.</p>
-          <button className="btn-primary">Get Started</button>
+          <Link to="/signup" className="btn-primary">Get Started</Link>
         </div>
         <div className="hero-illustration">
           {/* Placeholder for illustration */}
@@ -58,8 +58,8 @@ const Home = () => {
         <h2>Ready to move smarter?</h2>
         <p>Join SmartLogix and optimize your logistics today.</p>
         <div className="cta-buttons">
-          <button className="btn-secondary">Join as Trucker</button>
-          <button className="btn-primary">Join as Business Owner</button>
+          <Link to="/signup" className="btn-secondary">Join as Trucker</Link>
+          <Link to="/signup" className="btn-primary">Join as Business Owner</Link>
         </div>
       </section>
 

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #28a745; /* Green for truckers */
-    --bg-light: #f8f9fa;
-    --text-dark: #343a40;
-    --border-color: #dee2e6;
+    --primary-color: #00796B;
+    --bg-light: #E0F2F1;
+    --text-dark: #004D40;
+    --border-color: #B2DFDB;
 }
 
 .dashboard-container {
@@ -42,7 +42,7 @@
 }
 
 .dashboard-actions .btn-primary:hover {
-    background-color: #218838;
+    background-color: #004D40;
 }
 
 .dashboard-actions .btn-secondary {

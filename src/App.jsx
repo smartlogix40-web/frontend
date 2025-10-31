@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import BusinessDashboard from './pages/BusinessDashboard';
 import TruckerDashboard from './pages/TruckerDashboard';
+import ContactPage from './pages/ContactPage';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/business-dashboard" element={<BusinessDashboard />} />
         <Route path="/trucker-dashboard" element={<TruckerDashboard />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );

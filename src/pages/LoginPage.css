@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #2563EB;
+    --primary-color: #00796B;
     --white-color: #ffffff;
-    --text-color: #333;
-    --bg-color: #f8f9fa;
+    --text-color: #004D40;
+    --bg-color: #E0F2F1;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #f4f7f6, #f9f9f9);
+    background: linear-gradient(to right, #E0F2F1, #B2DFDB);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -40,7 +40,7 @@
 
 .login-header p {
     font-size: 1rem;
-    color: #6c757d;
+    color: #00796B;
 }
 
 .login-form {
@@ -56,14 +56,14 @@
     display: block;
     font-size: 0.9rem;
     font-weight: 500;
-    color: #444;
+    color: #004D40;
     margin-bottom: 0.5rem;
 }
 
 .input-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid #B2DFDB;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
@@ -72,7 +72,7 @@
 .input-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
 }
 
 .radio-group {
@@ -106,7 +106,7 @@
 }
 
 .btn-login:hover {
-    background-color: #1D4ED8;
+    background-color: #004D40;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
@@ -137,5 +137,25 @@
 }
 
 .signup-link a:hover {
+    text-decoration: underline;
+}
+
+.home-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.home-link p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.home-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.home-link a:hover {
     text-decoration: underline;
 }
