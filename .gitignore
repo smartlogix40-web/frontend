@@ -1,0 +1,8 @@
+# Dependencies
+/node_modules
+
+# Firebase
+src/firebase.js
+
+# misc
+.DS_Store
