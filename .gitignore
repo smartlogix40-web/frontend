@@ -9,3 +9,5 @@ src/firebase.js
 
 GEMINI.md 
 blueprint.md 
+
+*.log
