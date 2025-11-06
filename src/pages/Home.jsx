@@ -53,7 +53,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Call-to-Action Section */}
+      {/* Call-to-Action Section
       <section className="cta-section">
         <h2>Ready to move smarter?</h2>
         <p>Join SmartLogix and optimize your logistics today.</p>
@@ -61,7 +61,22 @@ const Home = () => {
           <Link to="/signup" className="btn-secondary">Join as Trucker</Link>
           <Link to="/signup" className="btn-primary">Join as Business Owner</Link>
         </div>
+      </section> */}
+
+            {/* Call-to-Action Section */}
+      <section className="cta-section">
+        <h2>Ready to move smarter?</h2>
+        <p>Join SmartLogix and optimize your logistics today.</p>
+        <div className="cta-buttons">
+          <Link to="/signup?type=trucker" className="btn-secondary">
+            Join as Trucker
+          </Link>
+          <Link to="/signup?type=business" className="btn-primary">
+            Join as Business Owner
+          </Link>
+        </div>
       </section>
+
 
       {/* Footer */}
       <footer className="footer">

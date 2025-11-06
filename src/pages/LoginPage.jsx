@@ -1,20 +1,41 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
+import { auth, db } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('business');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
-    // Placeholder for login logic
-    console.log('Login attempt with:', { email, password, userType });
-    //  TODO: Add Firebase login logic here
+    // Login with Firebase
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      // Try reading stored userType from Firestore; fall back to chosen radio
+      const userDocRef = doc(db, 'users', user.uid);
+      const userSnap = await getDoc(userDocRef);
+      const storedType = userSnap.exists() ? userSnap.data().userType : null;
+      const finalType = storedType || userType;
+
+      if (finalType === 'business') {
+        navigate('/business-dashboard');
+      } else {
+        navigate('/trucker-dashboard');
+      }
+    } catch (err) {
+      console.error('Login error', err);
+      setError(err.message || 'Failed to sign in');
+    }
   };
 
   return (
@@ -38,26 +59,39 @@ const LoginPage = () => {
           </div>
           <div className="input-group">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <div className="password-wrapper">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button
+                type="button"
+                className={`toggle-password ${showPassword ? 'open' : ''}`}
+                onClick={() => setShowPassword((s) => !s)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? (
+                  // eye-off (simple SVG)
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 6a9.77 9.77 0 0 1 8.94 5.5A9.77 9.77 0 0 1 12 17a9.77 9.77 0 0 1-8.94-5.5A9.77 9.77 0 0 1 12 6m0-2C7 4 2.73 7.11 1 12c1.73 4.89 6 8 11 8s9.27-3.11 11-8c-1.73-4.89-6-8-11-8zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                    <path d="M2 2l20 20" fill="none" stroke="#000" strokeWidth="0"/>
+                  </svg>
+                ) : (
+                  // eye (simple SVG)
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12 6a9.77 9.77 0 0 1 8.94 5.5A9.77 9.77 0 0 1 12 17a9.77 9.77 0 0 1-8.94-5.5A9.77 9.77 0 0 1 12 6m0-2C7 4 2.73 7.11 1 12c1.73 4.89 6 8 11 8s9.27-3.11 11-8c-1.73-4.89-6-8-11-8zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
           <div className="input-group">
             <label>I am a:</label>
             <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  value="business"
-                  checked={userType === 'business'}
-                  onChange={(e) => setUserType(e.target.value)}
-                />
-                Business
-              </label>
+              
               <label>
                 <input
                   type="radio"
@@ -66,6 +100,15 @@ const LoginPage = () => {
                   onChange={(e) => setUserType(e.target.value)}
                 />
                 Trucker
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  value="business"
+                  checked={userType === 'business'}
+                  onChange={(e) => setUserType(e.target.value)}
+                />
+                Business
               </label>
             </div>
           </div>
