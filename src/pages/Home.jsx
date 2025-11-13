@@ -6,20 +6,6 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-container">
-      {/* Navbar Placeholder */}
-      <nav className="navbar">
-        <div className="navbar-logo">
-          <Link to="/">SmartLogix 🚛</Link>
-        </div>
-        <div className="navbar-links">
-          <Link to="/">Home</Link>
-          <a href="#features">Features</a>
-          <a href="#how-it-works">How It Works</a>
-          <Link to="/contact">Contact Us</Link>
-          <Link to="/login" className="login-button">Login</Link>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <header className="hero-section">
         <div className="hero-content">

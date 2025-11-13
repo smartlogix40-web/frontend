@@ -98,60 +98,9 @@
     justify-content: center;
 }
 
-.toggle-password svg {
+.toggle-password img {
     width: 20px;
     height: 20px;
-    color: var(--primary-color);
-    fill: currentColor;
-}
-
-.toggle-password:focus {
-    outline: none;
-}
-
-/* nicer transition and visual state */
-.toggle-password svg {
-    transition: transform 150ms ease, opacity 150ms ease;
-    opacity: 0.95;
-}
-
-.toggle-password.open svg {
-    transform: scale(1.05) rotate(0deg);
-    opacity: 1;
-}
-
-.toggle-password:not(.open) svg {
-    transform: scale(1) rotate(0deg);
-}
-
-/* Password toggle styles */
-.password-wrapper {
-    position: relative;
-}
-
-.password-wrapper input {
-    padding-right: 3rem; /* space for the toggle */
-}
-
-.toggle-password {
-    position: absolute;
-    right: 0.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.toggle-password svg {
-    width: 20px;
-    height: 20px;
-    color: var(--primary-color);
-    fill: currentColor;
 }
 
 .toggle-password:focus {

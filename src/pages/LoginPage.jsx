@@ -4,6 +4,8 @@ import './LoginPage.css';
 import { auth, db } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
+import EyeIcon from '../assets/icons/eye.svg';
+import EyeOffIcon from '../assets/icons/eye-off.svg';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -67,24 +69,10 @@ const LoginPage = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <button
-                type="button"
-                className={`toggle-password ${showPassword ? 'open' : ''}`}
-                onClick={() => setShowPassword((s) => !s)}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
-              >
-                {showPassword ? (
-                  // eye-off (simple SVG)
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M12 6a9.77 9.77 0 0 1 8.94 5.5A9.77 9.77 0 0 1 12 17a9.77 9.77 0 0 1-8.94-5.5A9.77 9.77 0 0 1 12 6m0-2C7 4 2.73 7.11 1 12c1.73 4.89 6 8 11 8s9.27-3.11 11-8c-1.73-4.89-6-8-11-8zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                    <path d="M2 2l20 20" fill="none" stroke="#000" strokeWidth="0"/>
-                  </svg>
-                ) : (
-                  // eye (simple SVG)
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M12 6a9.77 9.77 0 0 1 8.94 5.5A9.77 9.77 0 0 1 12 17a9.77 9.77 0 0 1-8.94-5.5A9.77 9.77 0 0 1 12 6m0-2C7 4 2.73 7.11 1 12c1.73 4.89 6 8 11 8s9.27-3.11 11-8c-1.73-4.89-6-8-11-8zm0 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                  </svg>
-                )}
+              <button type = "button"
+              className='toggle-password'
+              onClick={() => setShowPassword((s) => !s)}>
+                  <img src={showPassword ? EyeOffIcon : EyeIcon} />
               </button>
             </div>
           </div>
