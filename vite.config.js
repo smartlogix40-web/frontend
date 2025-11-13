@@ -6,8 +6,13 @@ import svgr from 'vite-plugin-svgr'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    svgr(),      
+    svgr(),
     react(),
     tailwindcss(),
   ],
+  preview: {
+    allowedHosts: [
+      "smartlogix-yvmh.onrender.com"
+    ]
+  }
 })
